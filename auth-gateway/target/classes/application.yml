@@ -6,11 +6,20 @@ spring:
     name: auth-gateway
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "*"
+            allowed-methods:
+              - "*"
+            allowed-headers:
+              - "*"
       discovery:
         locator:
           enabled: 'true'
           lower-case-service-id: 'true'
-          
+
 eureka:
   instance:
     prefer-ip-adress: true

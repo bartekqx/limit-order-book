@@ -6,6 +6,15 @@ spring:
     name: auth-gateway
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "*"
+            allowed-methods:
+              - "*"
+            allowed-headers:
+              - "*"
       discovery:
         locator:
           enabled: 'true'

@@ -18,7 +18,7 @@ public class TokenService {
 
     public TokensDto generateTokens(UserEntity userEntity) {
         final LocalDateTime now = LocalDateTime.now();
-        final LocalDateTime expiryTime = now.plusSeconds(15);
+        final LocalDateTime expiryTime = now.plusHours(24);
 
         final String accessToken = Jwts.builder()
                 .setClaims(null)

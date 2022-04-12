@@ -1,7 +1,7 @@
 <mat-toolbar  color="primary" *ngIf="isLoggedIn" color="primary">
     <span>Order book application</span>
     <div class="spacer"></div>
-      <a mat-button>Home</a>
+      <a mat-button routerLink="/home">Home</a>
       <a mat-button>My Profile</a>
       <a mat-button (click)="logout()">Logout</a>
 </mat-toolbar>

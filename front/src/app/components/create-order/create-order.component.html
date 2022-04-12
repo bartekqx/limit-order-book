@@ -1,0 +1,51 @@
+<app-nav-bar></app-nav-bar>
+
+Choosen instrument: {{instrument | json}}
+<mat-card>
+<mat-card-content>
+    <h2>Choosen instrument details:</h2>
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Instrument name</mat-label>
+            <input matInput disabled value={{instrument?.name}}>
+            </mat-form-field></td>
+
+            <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Instrument min. price</mat-label>
+            <input matInput disabled value={{instrument?.minPrice}}>
+            </mat-form-field></td>
+
+            <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Instrument max. price</mat-label>
+            <input matInput disabled value={{instrument?.maxPrice}}>
+            </mat-form-field></td>
+      </tr>
+    </table>
+    <form #createOrder="ngForm"  (ngSubmit)="placeOrder()">
+        <h2>Place your order:</h2>
+      <mat-form-field appearance="fill">
+        <mat-label>Order type</mat-label>
+        <mat-select [(ngModel)]="orderType" [ngModelOptions]="{standalone: true}">
+          <mat-option value="BID">Bid</mat-option>
+          <mat-option value="ASK">Ask</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="priceInvalid">
+        Provided price is invalid, please specify price that is between min and max instrument price.
+    </mat-error>
+      <mat-form-field>
+        <input matInput type="number"  [(ngModel)]="price" placeholder="Price" name="price" required>
+        <mat-error>
+          Please provide a valid price number
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number"  [(ngModel)]="quantity" placeholder="Quantity" name="quantity" required>
+        <mat-error>
+          Please provide a valid quantity number
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!createOrder.form.valid">Place order</button>
+    </form>
+  </mat-card-content></mat-card>

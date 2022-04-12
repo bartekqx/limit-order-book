@@ -1,19 +1,19 @@
 package com.bartek.sulima.soft.application.rest.instruments;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@RequiredArgsConstructor
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InstrumentDto {
 
-    private final String code;
-    private final String name;
-    private final BigDecimal minPrice;
-    private final BigDecimal maxPrice;
+    private String code;
+    private String name;
+    private BigDecimal minPrice;
+    private BigDecimal maxPrice;
 }

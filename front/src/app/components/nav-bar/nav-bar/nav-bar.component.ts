@@ -16,7 +16,9 @@ export class NavBarComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if (this.tokenStorage.isLoggedIn() && window.location.pathname === '/home') {
+    if (this.tokenStorage.isLoggedIn() &&
+      (window.location.pathname != '/login') &&
+      (window.location.pathname != '/register')) {
       this.loggedIn = true;
     }
   }

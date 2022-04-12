@@ -1,4 +1,4 @@
-package com.bartek.sulima.soft.infrastructure.jpa;
+package com.bartek.sulima.soft.infrastructure.jpa.instrument;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

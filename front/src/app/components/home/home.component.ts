@@ -10,7 +10,7 @@ import { TokenStorageService } from 'src/app/services/token-storage/token-storag
 })
 export class HomeComponent implements OnInit {
 
-  private instruments:Instrument[] = [];
+ instruments:Instrument[] = [];
 
   constructor(private router:Router, 
     private orderService:OrderService,
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     }
 
   displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders'];
-  dataSource: Instrument[] = [];
+
 
   ngOnInit(): void {
     if(!(this.tokenStorage.isLoggedIn())) {
@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     this.orderService.getInstruments()
       .subscribe(rsp => {
         this.instruments = rsp;
-        this.dataSource = this.instruments;
       },
       err => {
         console.log("Error ocurred while ferching instruments!");
@@ -37,11 +36,11 @@ export class HomeComponent implements OnInit {
   }
 
   viewOrders(instrument:Instrument) {
-    this.router.navigate(["/login"])
+    this.router.navigate(["/view-orders"], { state : { instrumentObj: instrument}})
   }
 
-  createOrder() {
-    this.router.navigate(["/login"])
+  createOrder(instrument: Instrument) {
+    this.router.navigate(["/create-order"], { state : { instrumentObj: instrument}})
   }
 
 }

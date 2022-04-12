@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <div class="instruments-view">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="instruments" class="mat-elevation-z8">
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
     
@@ -31,7 +31,7 @@
       <ng-container matColumnDef="create-order">
         <th mat-header-cell *matHeaderCellDef> Create order </th>   
         <td mat-cell *matCellDef="let instrument"> 
-          <button mat-raised-button color="primary" (click)="createOrder()">Create order</button> 
+          <button mat-raised-button color="primary" (click)="createOrder(instrument)">Create order</button> 
         </td>
       </ng-container>
   

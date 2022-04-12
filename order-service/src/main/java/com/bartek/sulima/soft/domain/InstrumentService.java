@@ -1,8 +1,8 @@
 package com.bartek.sulima.soft.domain;
 
 import com.bartek.sulima.soft.application.rest.instruments.InstrumentDto;
-import com.bartek.sulima.soft.infrastructure.jpa.InstrumentEntity;
-import com.bartek.sulima.soft.infrastructure.jpa.InstrumentRepository;
+import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentEntity;
+import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +31,8 @@ public class InstrumentService {
                 .build();
     }
 
+    public InstrumentEntity findByCode(String instrumentCode) {
+        return instrumentRepository.findByCode(instrumentCode)
+                .orElseThrow(() -> new IllegalStateException("Instrument not found, code=" + instrumentCode));
+    }
 }

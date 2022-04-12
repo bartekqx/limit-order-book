@@ -1,6 +1,6 @@
 <mat-card *ngIf="!registerSuccess">
     <mat-card-content>
-      <form #loginForm="ngForm" (ngSubmit)="doRegister()">
+      <form #registerForm="ngForm" (ngSubmit)="doRegister()">
         <h2>Create account</h2>
         <mat-error *ngIf="usernameExists">
           User with that Username already exists in system.
@@ -26,7 +26,7 @@
               Please confirm your password
             </mat-error>
           </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Register</button>
+        <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Register</button>
       </form>
     </mat-card-content>
 </mat-card>

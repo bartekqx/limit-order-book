@@ -24,11 +24,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
-import { NavBarFixedFrontComponent } from './components/nav-bar-fixed-front/nav-bar-fixed-front.component';
 import { RegisterComponent } from './components/register/register/register.component';
 import { TokenInterceptorService } from './services/interceptor/token-interceptor.service';
 import { SignUpService } from './services/sign-up/sign-up.service';
 import { OrderService } from './services/order/order.service';
+import { CreateOrderComponent } from './components/create-order/create-order.component';
+import { ViewOrdersComponent } from './components/view-orders/view-orders/view-orders.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import { OrderService } from './services/order/order.service';
     HomeComponent,
     LoginComponent,
     NavBarComponent,
-    NavBarFixedFrontComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateOrderComponent,
+    ViewOrdersComponent
   ],
   imports: [
     BrowserModule,

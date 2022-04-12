@@ -1,7 +1,7 @@
 package com.bartek.sulima.soft.application.config.initializer;
 
-import com.bartek.sulima.soft.infrastructure.jpa.InstrumentEntity;
-import com.bartek.sulima.soft.infrastructure.jpa.InstrumentRepository;
+import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentEntity;
+import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

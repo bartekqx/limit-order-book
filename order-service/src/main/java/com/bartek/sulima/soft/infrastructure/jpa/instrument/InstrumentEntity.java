@@ -17,16 +17,20 @@ import java.math.BigDecimal;
 public class InstrumentEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
+    private Long id;
+
     @Column(nullable = false)
     private String code;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private BigDecimal minPrice;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private BigDecimal maxPrice;
 
 }

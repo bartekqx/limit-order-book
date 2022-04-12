@@ -1,6 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export interface SignUpDto {
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,13 +15,12 @@ export class SignUpService {
 
   constructor(private http:HttpClient) { }
 
-  public register (username:string, password:string) {
+  public register (signUpDto:SignUpDto) {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-     const requestDto:string = '{ "username":"' + username + '", "password": "' + password + '"}';
-
+    
      return this.http
-      .post("http://localhost:8901/user-service/sign-up", requestDto, httpOptions);
+      .post("http://localhost:8901/user-service/sign-up", signUpDto, httpOptions);
     }
 }

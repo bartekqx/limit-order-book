@@ -1,36 +1,47 @@
 <mat-card *ngIf="!registerSuccess">
-    <mat-card-content>
-      <form #registerForm="ngForm" (ngSubmit)="doRegister()">
-        <h2>Create account</h2>
-        <mat-error *ngIf="usernameExists">
-          User with that Username already exists in system.
+  <mat-card-content>
+    <form #registerForm="ngForm" (ngSubmit)="doRegister()">
+      <h2>Create account</h2>
+      <mat-error *ngIf="usernameExists">
+        User with that Username already exists in system.
+      </mat-error>
+      <mat-error *ngIf="passwordsNotMatch">
+          Provided passwords don't match
+      </mat-error>
+      <mat-form-field>
+        <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+        <mat-error>
+          Please provide a valid email address
         </mat-error>
-        <mat-error *ngIf="passwordsNotMatch">
-            Provided passwords don't match
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+        <mat-error>
+          Please provide a valid password
         </mat-error>
-        <mat-form-field>
-          <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmedPassword" name="confirmPassword" required>
           <mat-error>
-            Please provide a valid email address
+            Please confirm your password
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+          <input matInput type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
           <mat-error>
-            Please provide a valid password
+            Please confirm your password
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmedPassword" name="confirmPassword" required>
-            <mat-error>
-              Please confirm your password
-            </mat-error>
-          </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Register</button>
-      </form>
-    </mat-card-content>
+          <input matInput type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required>
+          <mat-error>
+            Please confirm your password
+          </mat-error>
+        </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Register</button>
+    </form>
+  </mat-card-content>
 </mat-card>
-
 <mat-card *ngIf="registerSuccess">
     <mat-card-content>
         <h3>Account has been created, now you can log in!</h3>

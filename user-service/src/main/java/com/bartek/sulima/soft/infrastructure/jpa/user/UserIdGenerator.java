@@ -15,8 +15,8 @@ public class UserIdGenerator implements IdentifierGenerator, Configurable {
 
     @Override
     public Serializable generate(SharedSessionContractImplementor session, Object obj) throws HibernateException {
-        final String first = RandomStringUtils.randomAlphanumeric(5);
-        final String second = RandomStringUtils.randomAlphanumeric(5);
+        final String first = RandomStringUtils.randomAlphanumeric(10);
+        final String second = RandomStringUtils.randomAlphanumeric(10);
         return String.format(USER_ID_FORMAT, first, second);
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUpService } from 'src/app/services/sign-up/sign-up.service';
+import { SignUpDto, SignUpService } from 'src/app/services/sign-up/sign-up.service';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +12,8 @@ export class RegisterComponent implements OnInit {
 
   username:string = "";
   password:string = "";
+  firstName:string = "";
+  lastName:string = "";
   confirmedPassword:string = "";
   passwordsNotMatch:boolean = false;
   usernameExists:boolean = false;
@@ -27,7 +29,13 @@ export class RegisterComponent implements OnInit {
         return;
     }
 
-    const rsp = this.signUpService.register(this.username, this.password)
+    var signUpDto = <SignUpDto>{};
+    signUpDto.username = this.username;
+    signUpDto.password = this.password;
+    signUpDto.firstName = this.firstName;
+    signUpDto.lastName = this.lastName;
+
+    const rsp = this.signUpService.register(signUpDto);
 
     rsp.subscribe(rsp => {
       this.registerSuccess = true;

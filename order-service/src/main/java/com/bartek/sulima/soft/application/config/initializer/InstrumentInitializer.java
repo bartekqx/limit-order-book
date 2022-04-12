@@ -14,26 +14,49 @@ import java.math.BigDecimal;
 public class InstrumentInitializer {
 
     private final InstrumentRepository instrumentRepository;
-
     @Bean
     public CommandLineRunner cmd() {
         return args -> {
             InstrumentEntity instrumentEntity1 = InstrumentEntity.builder()
                     .code("FX")
-                    .name("USD/EUR")
-                    .minPrice(BigDecimal.valueOf(2.75))
-                    .maxPrice(BigDecimal.valueOf(3.15))
+                    .name("EUR/USD")
+                    .minPrice(BigDecimal.valueOf(1.70))
+                    .maxPrice(BigDecimal.valueOf(2.15))
                     .build();
 
             InstrumentEntity instrumentEntity2 = InstrumentEntity.builder()
                     .code("STC")
                     .name("CD Project")
-                    .minPrice(BigDecimal.valueOf(124.50))
-                    .maxPrice(BigDecimal.valueOf(128.75))
+                    .minPrice(BigDecimal.valueOf(154.50))
+                    .maxPrice(BigDecimal.valueOf(168.75))
+                    .build();
+
+            InstrumentEntity instrumentEntity3 = InstrumentEntity.builder()
+                    .code("FX")
+                    .name("USD/CAD")
+                    .minPrice(BigDecimal.valueOf(2.70))
+                    .maxPrice(BigDecimal.valueOf(3.10))
+                    .build();
+
+            InstrumentEntity instrumentEntity4 = InstrumentEntity.builder()
+                    .code("FX")
+                    .name("GPB/EUR")
+                    .minPrice(BigDecimal.valueOf(1.05))
+                    .maxPrice(BigDecimal.valueOf(2.20))
+                    .build();
+
+            InstrumentEntity instrumentEntity5 = InstrumentEntity.builder()
+                    .code("FX")
+                    .name("AUD/USD")
+                    .minPrice(BigDecimal.valueOf(0.55))
+                    .maxPrice(BigDecimal.valueOf(0.75))
                     .build();
 
             instrumentRepository.save(instrumentEntity1);
             instrumentRepository.save(instrumentEntity2);
+            instrumentRepository.save(instrumentEntity3);
+            instrumentRepository.save(instrumentEntity4);
+            instrumentRepository.save(instrumentEntity5);
         };
     }
 }

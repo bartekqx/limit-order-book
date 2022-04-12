@@ -30,7 +30,7 @@ import { SignUpService } from './services/sign-up/sign-up.service';
 import { OrderService } from './services/order/order.service';
 import { CreateOrderComponent } from './components/create-order/create-order.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders/view-orders.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +59,7 @@ import { ViewOrdersComponent } from './components/view-orders/view-orders/view-o
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
+    MatTabsModule
   ],
   providers: [
     SignInService,

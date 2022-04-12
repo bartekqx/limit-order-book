@@ -1,6 +1,5 @@
 <app-nav-bar></app-nav-bar>
 
-Choosen instrument: {{instrument | json}}
 <mat-card>
 <mat-card-content>
     <h2>Choosen instrument details:</h2>
@@ -23,10 +22,10 @@ Choosen instrument: {{instrument | json}}
       </tr>
     </table>
     <form #createOrder="ngForm"  (ngSubmit)="placeOrder()">
-        <h2>Place your order:</h2>
+    <h2>Place your order:</h2>
       <mat-form-field appearance="fill">
         <mat-label>Order type</mat-label>
-        <mat-select [(ngModel)]="orderType" [ngModelOptions]="{standalone: true}">
+        <mat-select [(ngModel)]="orderType" [ngModelOptions]="{standalone: true}" required="true">
           <mat-option value="BID">Bid</mat-option>
           <mat-option value="ASK">Ask</mat-option>
         </mat-select>

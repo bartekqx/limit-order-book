@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e5f7d7e-448b-46fe-822c-684f59e1d6d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../auth-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-gateway/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/config/initializer/UserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/config/initializer/UserInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/domain/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/domain/TokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/domain/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/domain/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/domain/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/domain/TokenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/domain/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/domain/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity$UserEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity$UserEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserIdGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserIdGenerator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

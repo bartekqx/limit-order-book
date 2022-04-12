@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService{
@@ -20,11 +22,25 @@ public class UserService{
     }
 
     public void createAccount(CreateAccountDto createAccountDto) {
+        checkIfUsernameTaken(createAccountDto);
+
         final UserEntity userEntity = UserEntity.builder()
                 .password(passwordEncoder.encode(createAccountDto.getPassword()))
                 .username(createAccountDto.getUsername())
+                .firstName(createAccountDto.getFirstName())
+                .lastName(createAccountDto.getLastName())
                 .build();
 
         userRepository.save(userEntity);
+    }
+
+    private void checkIfUsernameTaken(CreateAccountDto createAccountDto) {
+        final Optional<UserEntity> user =
+                userRepository.findByUsername(createAccountDto.getUsername());
+
+        if (user.isPresent()) {
+            throw new UsernameExistsException();
+        }
+
     }
 }

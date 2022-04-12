@@ -9,5 +9,7 @@ public class CreateAccountDto {
 
     private final String username;
     private final String password;
+    private final String firstName;
+    private final String lastName;
 
 }

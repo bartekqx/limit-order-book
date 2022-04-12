@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +22,13 @@ public class TokenService {
         final LocalDateTime now = LocalDateTime.now();
         final LocalDateTime expiryTime = now.plusHours(24);
 
+        final Map<String, Object> claims = new HashMap<>();
+        claims.put("usrId", userEntity.getUserId());
+        claims.put("firstName", userEntity.getFirstName());
+        claims.put("lastName", userEntity.getLastName());
+
         final String accessToken = Jwts.builder()
-                .setClaims(null)
+                .setClaims(claims)
                 .setSubject(userEntity.getUsername())
                 .setIssuedAt(DateUtil.toDate(now))
                 .setExpiration(DateUtil.toDate(expiryTime))

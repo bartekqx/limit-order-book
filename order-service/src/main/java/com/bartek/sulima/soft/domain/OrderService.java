@@ -25,10 +25,10 @@ public class OrderService {
 
     public void createOrder(String tokenHeader, OrderDto orderDto) throws JsonProcessingException {
         final String token = tokenHeader.replace("Bearer ", "");
-        final String username = getUsernameFromToken(token);
+        final String userId = getUserId(token);
 
         final OrderEntity orderEntity = OrderEntity.builder()
-                .userId(username)
+                .userId(userId)
                 .orderType(orderDto.getOrderType())
                 .price(orderDto.getPrice())
                 .instrumentCode(orderDto.getInstrument().getCode())
@@ -38,12 +38,12 @@ public class OrderService {
         orderRepository.save(orderEntity);
     }
 
-    private String getUsernameFromToken(String token) throws JsonProcessingException {
+    private String getUserId(String token) throws JsonProcessingException {
         final String[] chunks = token.split("\\.");
         final String decodedPayloadJson = new String(Base64.getDecoder().decode(chunks[1]));
         final JsonNode jsonNode= objectMapper.readTree(decodedPayloadJson);
 
-        return jsonNode.get("sub").asText();
+        return jsonNode.get("usrId").asText();
     }
 
     public List<OrderDto> getOrdersByCode(String instrumentCode) {

@@ -20,7 +20,9 @@ public class UserInitializer {
         return args -> {
             UserEntity userEntity = UserEntity.builder()
                     .username("bartek")
-                    .password(passwordEncoder.encode("bartek123"))
+                    .password(passwordEncoder.encode("bartek"))
+                    .firstName("Bartłomiej")
+                    .lastName("Sulima")
                     .build();
 
             userRepository.save(userEntity);

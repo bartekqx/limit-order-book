@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   passwordsNotMatch:boolean = false;
   usernameExists:boolean = false;
   registerSuccess:boolean = false;
+
   ngOnInit(): void {
     
   }
@@ -33,6 +34,9 @@ export class RegisterComponent implements OnInit {
     },
     err => {
       this.registerSuccess = false;
+      if (err.status == 400) {
+        this.usernameExists = true;
+      }
     })
   }
 

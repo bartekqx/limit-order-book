@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -16,13 +17,19 @@ import javax.persistence.*;
 public class UserEntity  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GenericGenerator(name = "user_id_generator", strategy = "com.bartek.sulima.soft.infrastructure.jpa.user.UserIdGenerator")
+    @GeneratedValue(generator = "user_id_generator")
+    private String userId;
 
     @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
     private String password;
+
+    private String firstName;
+
+    private String lastName;
+
 
 }

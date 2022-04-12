@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { SignInService } from './services/sign-in.service';
+import { SignInService } from './services/sign-in/sign-in.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,11 +12,27 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
+import { NavBarFixedFrontComponent } from './components/nav-bar-fixed-front/nav-bar-fixed-front.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
-    HomeComponent
+    NavBarComponent,
+    NavBarFixedFrontComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +41,17 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     MatSliderModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [SignInService],
   bootstrap: [AppComponent],

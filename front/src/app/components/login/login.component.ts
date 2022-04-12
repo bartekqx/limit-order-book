@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SignInService } from 'src/app/services/sign-in.service';
+import { SignInService } from 'src/app/services/sign-in/sign-in.service';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
 @Component({
@@ -10,11 +11,15 @@ import { SignInService } from 'src/app/services/sign-in.service';
 })
 export class LoginComponent implements OnInit {
 
-   username:string;
-   password:string;
+   username:string = "";
+   password:string = "";
+   loginFail:boolean = false;
    message:any;
 
-  constructor(private service:SignInService, private router:Router) { }
+  constructor(
+    private service:SignInService,
+     private tokenStorageService:TokenStorageService,
+     private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +27,11 @@ export class LoginComponent implements OnInit {
   doLogin() {
     const rsp = this.service.login(this.username, this.password);
     rsp.subscribe(rsp => {
-      localStorage.setItem('accessToken', rsp.accessToken);
+      this.tokenStorageService.saveToken(rsp.accessToken);
       this.router.navigate(["/home"]);
+    },
+    err => {
+      this.loginFail = true;
     })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Instrument, OrderService } from 'src/app/services/order/order.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 @Component({
@@ -9,25 +10,38 @@ import { TokenStorageService } from 'src/app/services/token-storage/token-storag
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router, private tokenStorage:TokenStorageService) { }
+  private instruments:Instrument[] = [];
 
-  displayedColumns: string[] = ['code', 'name', 'action'];
-  dataSource = INSTRUMENTS;
+  constructor(private router:Router, 
+    private orderService:OrderService,
+    private tokenStorage:TokenStorageService) {
+
+    }
+
+  displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders'];
+  dataSource: Instrument[] = [];
 
   ngOnInit(): void {
     if(!(this.tokenStorage.isLoggedIn())) {
       this.router.navigate(["/login"]);
     }
+    
+    this.orderService.getInstruments()
+      .subscribe(rsp => {
+        this.instruments = rsp;
+        this.dataSource = this.instruments;
+      },
+      err => {
+        console.log("Error ocurred while ferching instruments!");
+      })
+  }
+
+  viewOrders(instrument:Instrument) {
+    this.router.navigate(["/login"])
+  }
+
+  createOrder() {
+    this.router.navigate(["/login"])
   }
 
 }
-
-export interface Instrument {
-  code: string;
-  name: string;
-}
-
-const INSTRUMENTS: Instrument[] = [
-  {code: 'FX', name: 'Forex'},
-  {code: 'STC', name: 'Stocks'},
-];

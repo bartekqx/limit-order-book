@@ -23,6 +23,16 @@ export class TokenStorageService {
     this.loggedIn = true;
   }
 
+  getToken(): string {
+    const token = localStorage.getItem(this.accessTokenKey);
+    
+    if (token == null) {
+      return '';
+    }
+
+    return token;
+  }
+
   clear() {
     localStorage.removeItem(this.accessTokenKey);
     this.loggedIn = false;

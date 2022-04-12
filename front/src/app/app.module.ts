@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInService } from './services/sign-in/sign-in.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,9 @@ import { MatOptionModule } from '@angular/material/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
 import { NavBarFixedFrontComponent } from './components/nav-bar-fixed-front/nav-bar-fixed-front.component';
 import { RegisterComponent } from './components/register/register/register.component';
+import { TokenInterceptorService } from './services/interceptor/token-interceptor.service';
+import { SignUpService } from './services/sign-up/sign-up.service';
+import { OrderService } from './services/order/order.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,12 @@ import { RegisterComponent } from './components/register/register/register.compo
     MatSelectModule,
     MatOptionModule,
   ],
-  providers: [SignInService],
+  providers: [
+    SignInService,
+    SignUpService,
+    OrderService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
   exports: [AppRoutingModule]
 })

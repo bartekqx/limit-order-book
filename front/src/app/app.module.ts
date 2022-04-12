@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar/nav-bar.component';
 import { NavBarFixedFrontComponent } from './components/nav-bar-fixed-front/nav-bar-fixed-front.component';
+import { RegisterComponent } from './components/register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NavBarFixedFrontComponent } from './components/nav-bar-fixed-front/nav-
     HomeComponent,
     LoginComponent,
     NavBarComponent,
-    NavBarFixedFrontComponent
+    NavBarFixedFrontComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

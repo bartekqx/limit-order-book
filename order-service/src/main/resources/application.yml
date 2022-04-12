@@ -1,0 +1,21 @@
+server:
+  port: 8903
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+eureka:
+  instance:
+    prefer-ip-adress: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8900/eureka/

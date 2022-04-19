@@ -4,7 +4,6 @@ import com.bartek.sulima.soft.domain.OrderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +22,9 @@ public class OrdersController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/{instrumentCode}")
-    public ResponseEntity<List<OrderDto>> getOrders(@PathVariable String instrumentCode) {
-        return ResponseEntity.ok(orderService.getOrdersByCode(instrumentCode));
+    @GetMapping("/{instrumentName}")
+    public ResponseEntity<List<OrderDto>> getOrders(@PathVariable String instrumentName) {
+        return ResponseEntity.ok(orderService.getOrdersByInstrumentName(instrumentName));
     }
 
     private String getAuthHeader(HttpServletRequest request) {

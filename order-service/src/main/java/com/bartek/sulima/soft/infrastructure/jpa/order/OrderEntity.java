@@ -22,7 +22,7 @@ public class OrderEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String instrumentCode;
+    private String instrumentName;
 
     @Column(nullable = false)
     private String userId;

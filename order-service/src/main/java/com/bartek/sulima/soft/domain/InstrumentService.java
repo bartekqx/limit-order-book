@@ -31,8 +31,8 @@ public class InstrumentService {
                 .build();
     }
 
-    public InstrumentEntity findByCode(String instrumentCode) {
-        return instrumentRepository.findByCode(instrumentCode)
-                .orElseThrow(() -> new IllegalStateException("Instrument not found, code=" + instrumentCode));
+    public InstrumentEntity findByName(String name) {
+        return instrumentRepository.findByName(name)
+                .orElseThrow(() -> new IllegalStateException("Instrument not found, name=" + name));
     }
 }

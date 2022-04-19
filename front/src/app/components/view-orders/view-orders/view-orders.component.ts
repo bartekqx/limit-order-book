@@ -22,7 +22,7 @@ export class ViewOrdersComponent implements OnInit {
     if (this.instrument === undefined) {
       return;
     }
-    this.orderService.getOrdersByCode(this.instrument.code).subscribe(res => {
+    this.orderService.getOrdersByName(this.instrument.name).subscribe(res => {
         this.orders = res;
     }, err => {
       console.error("Error occured while fetching orders!");

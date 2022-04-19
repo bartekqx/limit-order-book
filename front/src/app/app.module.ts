@@ -31,6 +31,7 @@ import { OrderService } from './services/order/order.service';
 import { CreateOrderComponent } from './components/create-order/create-order.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders/view-orders.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MyProfileComponent } from './components/my-profile/my-profile/my-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     NavBarComponent,
     RegisterComponent,
     CreateOrderComponent,
-    ViewOrdersComponent
+    ViewOrdersComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

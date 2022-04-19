@@ -31,7 +31,7 @@ public class OrderService {
                 .userId(userId)
                 .orderType(orderDto.getOrderType())
                 .price(orderDto.getPrice())
-                .instrumentCode(orderDto.getInstrument().getCode())
+                .instrumentName(orderDto.getInstrument().getName())
                 .quantity(orderDto.getQuantity())
                 .build();
 
@@ -46,10 +46,10 @@ public class OrderService {
         return jsonNode.get("usrId").asText();
     }
 
-    public List<OrderDto> getOrdersByCode(String instrumentCode) {
-        final InstrumentEntity instrumentEntity = instrumentService.findByCode(instrumentCode);
+    public List<OrderDto> getOrdersByInstrumentName(String instrumentName) {
+        final InstrumentEntity instrumentEntity = instrumentService.findByName(instrumentName);
 
-        return orderRepository.findByInstrumentCode(instrumentCode)
+        return orderRepository.findByInstrumentName(instrumentName)
                 .stream()
                 .map(orderEntity -> {
                     return OrderDto.builder()

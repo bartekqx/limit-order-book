@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register/register.component';
 import { CreateOrderComponent } from './components/create-order/create-order.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders/view-orders.component';
+import { MyProfileComponent } from './components/my-profile/my-profile/my-profile.component';
 
 const routes: Routes = [
   {path:"", redirectTo: "login", pathMatch: "full"},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:"register", component:RegisterComponent},
   {path:"home", component:HomeComponent},
   {path:"create-order", component:CreateOrderComponent},
-  {path:"view-orders", component:ViewOrdersComponent}
+  {path:"view-orders", component:ViewOrdersComponent},
+  {path:"my-profile", component:MyProfileComponent}
 ]
 
 // configures NgModule imports and exports

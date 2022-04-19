@@ -19,7 +19,7 @@ public class InstrumentInitializer {
         return args -> {
             InstrumentEntity instrumentEntity1 = InstrumentEntity.builder()
                     .code("FX")
-                    .name("EUR/USD")
+                    .name("EURUSD")
                     .minPrice(BigDecimal.valueOf(1.70))
                     .maxPrice(BigDecimal.valueOf(2.15))
                     .build();
@@ -33,21 +33,21 @@ public class InstrumentInitializer {
 
             InstrumentEntity instrumentEntity3 = InstrumentEntity.builder()
                     .code("FX")
-                    .name("USD/CAD")
+                    .name("USDCAD")
                     .minPrice(BigDecimal.valueOf(2.70))
                     .maxPrice(BigDecimal.valueOf(3.10))
                     .build();
 
             InstrumentEntity instrumentEntity4 = InstrumentEntity.builder()
                     .code("FX")
-                    .name("GPB/EUR")
+                    .name("GPBEUR")
                     .minPrice(BigDecimal.valueOf(1.05))
                     .maxPrice(BigDecimal.valueOf(2.20))
                     .build();
 
             InstrumentEntity instrumentEntity5 = InstrumentEntity.builder()
                     .code("FX")
-                    .name("AUD/USD")
+                    .name("AUDUSD")
                     .minPrice(BigDecimal.valueOf(0.55))
                     .maxPrice(BigDecimal.valueOf(0.75))
                     .build();

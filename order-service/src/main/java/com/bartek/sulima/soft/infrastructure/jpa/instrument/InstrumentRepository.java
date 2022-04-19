@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface InstrumentRepository extends JpaRepository<InstrumentEntity, Long> {
 
-    Optional<InstrumentEntity> findByCode(String code);
+    Optional<InstrumentEntity> findByName(String code);
 }

@@ -28,6 +28,11 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 
+  home() {
+    window.location.reload();
+    this.router.navigate(["/home"])
+  }
+
   get isLoggedIn(): boolean {
     return this.loggedIn;
   }

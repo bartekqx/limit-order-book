@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="\"order\"")
+@Table(name="orders")
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class OrderEntity {
 

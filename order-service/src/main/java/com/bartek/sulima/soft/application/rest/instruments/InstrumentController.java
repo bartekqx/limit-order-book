@@ -1,6 +1,7 @@
 package com.bartek.sulima.soft.application.rest.instruments;
 
 import com.bartek.sulima.soft.domain.InstrumentService;
+import com.bartek.sulima.soft.domain.dto.InstrumentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

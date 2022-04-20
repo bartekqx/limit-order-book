@@ -1,6 +1,7 @@
 package com.bartek.sulima.soft.application.rest.orders;
 
 import com.bartek.sulima.soft.domain.OrderService;
+import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

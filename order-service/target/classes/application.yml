@@ -2,6 +2,26 @@ server:
   port: 8903
 
 spring:
+  h2:
+    console:
+      enabled: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          replication-factor: 1
+          brokers:
+            - localhost:9092
+      bindings:
+        order-created-in-channel:
+          destination: order-created-topic
+          content-type: application/json
+        order-created-out-channel:
+          destination: order-created-topic
+          content-type: application/json
+        transaction-out-channel:
+          destination: transaction-topic
+          content-type: application/json
   application:
     name: order-service
   datasource:

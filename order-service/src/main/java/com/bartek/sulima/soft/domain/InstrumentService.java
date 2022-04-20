@@ -1,6 +1,6 @@
 package com.bartek.sulima.soft.domain;
 
-import com.bartek.sulima.soft.application.rest.instruments.InstrumentDto;
+import com.bartek.sulima.soft.domain.dto.InstrumentDto;
 import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentEntity;
 import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentRepository;
 import lombok.RequiredArgsConstructor;

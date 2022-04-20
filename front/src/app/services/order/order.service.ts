@@ -16,6 +16,11 @@ export interface Order {
   quantity: number;
 }
 
+export interface Orders {
+  askOrders: Order[];
+  bidOrders: Order[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,8 +34,8 @@ export class OrderService {
      return this.http.get<Instrument[]>("http://localhost:8901/order-service/instruments");
   }
 
-  getOrdersByName(instrumentName: string): Observable<Order[]> {
-    return this.http.get<Order[]>("http://localhost:8901/order-service/orders/" + instrumentName);
+  getOrdersByName(instrumentName: string): Observable<Orders> {
+    return this.http.get<Orders>("http://localhost:8901/order-service/orders/" + instrumentName);
   }
 
   placeOrder(order:Order) {

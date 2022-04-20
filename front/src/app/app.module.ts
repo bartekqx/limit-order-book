@@ -32,6 +32,9 @@ import { CreateOrderComponent } from './components/create-order/create-order.com
 import { ViewOrdersComponent } from './components/view-orders/view-orders/view-orders.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MyProfileComponent } from './components/my-profile/my-profile/my-profile.component';
+import { TransactionService } from './services/transaction/transaction-service';
+import { UserService } from './services/user/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +70,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile/my-profil
     SignInService,
     SignUpService,
     OrderService,
+    TransactionService,
+    UserService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent],

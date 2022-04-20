@@ -1,4 +1,16 @@
 table {
+    width: 80%;
+    margin: 5em auto;
+  } 
+
+   .orders-view {
+    display: inline-block;
     width: 50%;
-    margin: 20em auto;
   }
+
+  .instrument-header {
+    padding-top: 10em;
+    text-align: center;
+  }
+
+

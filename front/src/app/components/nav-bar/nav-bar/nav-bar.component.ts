@@ -32,6 +32,10 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(["/home"])
   }
 
+  myProfile() {
+    this.router.navigate(["/my-profile"])
+  }
+
   get isLoggedIn(): boolean {
     return this.loggedIn;
   }

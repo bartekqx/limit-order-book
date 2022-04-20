@@ -2,6 +2,7 @@ package com.bartek.sulima.soft.application.rest.orders;
 
 import com.bartek.sulima.soft.domain.OrderService;
 import com.bartek.sulima.soft.domain.dto.OrderDto;
+import com.bartek.sulima.soft.domain.dto.OrdersDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class OrdersController {
     }
 
     @GetMapping("/{instrumentName}")
-    public ResponseEntity<List<OrderDto>> getOrders(@PathVariable String instrumentName) {
+    public ResponseEntity<OrdersDto> getOrders(@PathVariable String instrumentName) {
         return ResponseEntity.ok(orderService.getOrdersByInstrumentName(instrumentName));
     }
 

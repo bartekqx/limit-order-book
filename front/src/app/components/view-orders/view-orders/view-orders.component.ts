@@ -9,8 +9,9 @@ import { Instrument, Order, OrderService } from 'src/app/services/order/order.se
 })
 export class ViewOrdersComponent implements OnInit {
 
-  instrument!:Instrument;
-  orders:Order[] = [];
+  instrument:Instrument;
+  bidOrders:Order[] = [];
+  askOrders:Order[] = [];
   
    constructor( private router:Router, private orderService:OrderService) {
      this.instrument = this.router.getCurrentNavigation()?.extras?.state?.['instrumentObj'];
@@ -22,8 +23,10 @@ export class ViewOrdersComponent implements OnInit {
     if (this.instrument === undefined) {
       return;
     }
+
     this.orderService.getOrdersByName(this.instrument.name).subscribe(res => {
-        this.orders = res;
+        this.bidOrders = res.bidOrders;
+        this.askOrders = res.askOrders;
     }, err => {
       console.error("Error occured while fetching orders!");
     })

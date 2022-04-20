@@ -1,44 +1,32 @@
-body {
-    background: rgb(99, 39, 120)
-}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 10em auto;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
 
-.form-control:focus {
-    box-shadow: none;
-    border-color: #BA68C8
-}
+  table {
+      width: 70%;
+  }
 
-.profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
-}
+   .my-profile-view {
+    display: inline-block;
+    width: 50%;
+  }
 
-.profile-button:hover {
-    background: #682773
-}
+  .change-pass-button {
+      text-align: center;
+  }
 
-.profile-button:focus {
-    background: #682773;
-    box-shadow: none
-}
-
-.profile-button:active {
-    background: #682773;
-    box-shadow: none
-}
-
-.back:hover {
-    color: #682773;
-    cursor: pointer
-}
-
-.labels {
-    font-size: 11px
-}
-
-.add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
-}
+  .my-header {
+    padding-right: 28%;
+    text-align: center;
+  }

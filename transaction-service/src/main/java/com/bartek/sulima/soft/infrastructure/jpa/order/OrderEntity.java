@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @Entity
 @Builder
@@ -34,6 +35,9 @@ public class OrderEntity {
 
     @Column(nullable = false)
     private int quantity;
+
+    @Column(nullable = false)
+    private Instant createTime;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "transaction_id", nullable = false)

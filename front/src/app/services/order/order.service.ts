@@ -21,6 +21,16 @@ export interface Orders {
   bidOrders: Order[];
 }
 
+export interface OrdersSeries {
+  name: string;
+  series: OrdersSeriesXY[];
+}
+
+export interface OrdersSeriesXY {
+  name: Date;
+  value: number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +46,10 @@ export class OrderService {
 
   getOrdersByName(instrumentName: string): Observable<Orders> {
     return this.http.get<Orders>("http://localhost:8901/order-service/orders/" + instrumentName);
+  }
+
+  getPendingOrders(interval: number): Observable<OrdersSeries[]> {
+    return this.http.get<OrdersSeries[]>("http://localhost:8901/order-service/orders/series/pending-orders/" + interval);
   }
 
   placeOrder(order:Order) {

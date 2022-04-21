@@ -35,6 +35,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile/my-profil
 import { TransactionService } from './services/transaction/transaction-service';
 import { UserService } from './services/user/user.service';
 import { LogoutService } from './services/logout/logout.service';
+import { AnalysisComponent } from './components/analysis/analysis/analysis.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { LogoutService } from './services/logout/logout.service';
     RegisterComponent,
     CreateOrderComponent,
     ViewOrdersComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    AnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,9 @@ import { LogoutService } from './services/logout/logout.service';
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     SignInService,

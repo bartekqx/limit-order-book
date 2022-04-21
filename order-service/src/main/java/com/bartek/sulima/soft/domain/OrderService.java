@@ -1,5 +1,7 @@
 package com.bartek.sulima.soft.domain;
 
+import com.bartek.sulima.soft.application.rest.orders.OrdersSerie;
+import com.bartek.sulima.soft.application.rest.orders.OrdersSeriesXYDto;
 import com.bartek.sulima.soft.domain.dto.InstrumentDto;
 import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.bartek.sulima.soft.domain.dto.OrdersDto;
@@ -16,9 +18,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,6 +41,7 @@ public class OrderService {
                 .price(orderDto.getPrice())
                 .instrumentName(orderDto.getInstrument().getName())
                 .quantity(orderDto.getQuantity())
+                .createTime(Instant.now())
                 .build();
 
         orderRepository.save(orderEntity);
@@ -68,7 +70,6 @@ public class OrderService {
     private void processAskCreatedOrder(OrderEntity createdOrder) {
         orderRepository.findBidByInstrumentNameAndPriceAndQuantity(
                 createdOrder.getInstrumentName(),
-
                 createdOrder.getPrice(),
                 createdOrder.getQuantity())
                 .stream()
@@ -107,6 +108,7 @@ public class OrderService {
                 .quantity(orderEntity.getQuantity())
                 .userId(orderEntity.getUserId())
                 .orderType(orderEntity.getOrderType())
+                .createTime(orderEntity.getCreateTime())
                 .build();
     }
 
@@ -141,5 +143,31 @@ public class OrderService {
                 .collect(Collectors.toList());
 
         return new OrdersDto(askOrders, bidOrders);
+    }
+
+    public List<OrdersSerie> getSeriesForPendingOrders(int intervalMinutes) {
+        final Instant interval = Instant.now().minus(intervalMinutes, ChronoUnit.MINUTES);
+        final List<OrderEntity> orders = orderRepository.findOrdersInInterval(interval);
+
+        final Map<String, List<OrderEntity>> ordersByInstrument = orders.stream().collect(Collectors.groupingBy(OrderEntity::getInstrumentName));
+        final List<OrdersSerie> ordersSeries = new ArrayList<>();
+
+        for (Map.Entry<String, List<OrderEntity>> entry : ordersByInstrument.entrySet()) {
+
+            int counter = 0;
+            final List<OrdersSeriesXYDto> series = new ArrayList<>();
+            for (OrderEntity orderEntity : entry.getValue()) {
+                series.add(new OrdersSeriesXYDto(orderEntity.getCreateTime().toEpochMilli(), ++counter));
+            }
+
+            final OrdersSerie serie = OrdersSerie.builder()
+                    .name(entry.getKey())
+                    .series(series)
+                    .build();
+
+            ordersSeries.add(serie);
+        }
+
+        return ordersSeries;
     }
 }

@@ -1,5 +1,7 @@
 package com.bartek.sulima.soft.domain;
 
+import com.bartek.sulima.soft.application.rest.OrdersSerie;
+import com.bartek.sulima.soft.application.rest.OrdersSeriesXYDto;
 import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.bartek.sulima.soft.domain.dto.TransactionDto;
 import com.bartek.sulima.soft.domain.model.Order;
@@ -13,7 +15,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -53,6 +59,33 @@ public class TransactionService {
         log.info("Transaction saved successfully, {} ", transactionEntity);
     }
 
+    public List<OrdersSerie>  getExecutedOrders(int intervalMinutes) {
+        final Instant interval = Instant.now().minus(intervalMinutes, ChronoUnit.MINUTES);
+        final List<OrderEntity> orders = orderRepository.findOrdersInInterval(interval);
+
+        final Map<String, List<OrderEntity>> ordersByInstrument = orders.stream().collect(Collectors.groupingBy(OrderEntity::getInstrumentName));
+        final List<OrdersSerie> ordersSeries = new ArrayList<>();
+
+        for (Map.Entry<String, List<OrderEntity>> entry : ordersByInstrument.entrySet()) {
+
+            int counter = 0;
+            final List<OrdersSeriesXYDto> series = new ArrayList<>();
+            for (OrderEntity orderEntity : entry.getValue()) {
+                series.add(new OrdersSeriesXYDto(orderEntity.getCreateTime().toEpochMilli(), ++counter));
+            }
+
+            final OrdersSerie ordersSerie = OrdersSerie.builder()
+                    .name(entry.getKey())
+                    .series(series)
+                    .build();
+
+            ordersSeries.add(ordersSerie);
+        }
+
+        return ordersSeries;
+    }
+
+
     private OrderDto mapToDto(OrderEntity order) {
         return OrderDto.builder()
                 .id(order.getId())
@@ -73,6 +106,7 @@ public class TransactionService {
                 .instrumentName(order.getInstrumentName())
                 .userId(order.getUserId())
                 .transaction(entity)
+                .createTime(order.getCreateTime())
                 .build();
     }
 

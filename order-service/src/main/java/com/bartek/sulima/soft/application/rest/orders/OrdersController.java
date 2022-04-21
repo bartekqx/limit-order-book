@@ -29,6 +29,11 @@ public class OrdersController {
         return ResponseEntity.ok(orderService.getOrdersByInstrumentName(instrumentName));
     }
 
+    @GetMapping("/series/pending-orders/{interval}")
+    public ResponseEntity<List<OrdersSerie>> getPendingOrders(@PathVariable int interval) {
+        return ResponseEntity.ok(orderService.getSeriesForPendingOrders(interval));
+    }
+
     private String getAuthHeader(HttpServletRequest request) {
         return request.getHeader("Authorization");
     }

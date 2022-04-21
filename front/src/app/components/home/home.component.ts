@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
     }
 
-  displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders', 'analysis'];
+  displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders'];
 
 
   ngOnInit(): void {

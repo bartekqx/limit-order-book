@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @Data
 @Builder
@@ -19,4 +20,5 @@ public class Order {
     private String orderType;
     private BigDecimal price;
     private int quantity;
+    private Instant createTime;
 }

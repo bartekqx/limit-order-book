@@ -1,7 +1,8 @@
-package com.bartek.sulima.soft.domain;
+package com.bartek.sulima.soft.domain.user;
 
 import com.bartek.sulima.soft.application.rest.register.CreateAccountDto;
 import com.bartek.sulima.soft.application.rest.user.UserDto;
+import com.bartek.sulima.soft.domain.token.TokenUtil;
 import com.bartek.sulima.soft.infrastructure.jpa.user.UserEntity;
 import com.bartek.sulima.soft.infrastructure.jpa.user.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;

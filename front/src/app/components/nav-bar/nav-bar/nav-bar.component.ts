@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogoutService } from 'src/app/services/logout/logout.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class NavBarComponent implements OnInit {
 
   private loggedIn: boolean;
   
-  constructor(private router:Router, private tokenStorage:TokenStorageService) {
+  constructor(private router:Router, 
+    private tokenStorage:TokenStorageService,
+     private logoutService:LogoutService) {
     this.loggedIn = false;
    }
 
@@ -24,8 +27,14 @@ export class NavBarComponent implements OnInit {
   }
 
   logout() {
-    this.tokenStorage.clear();
+    this.logoutService.logout().subscribe(res => {
+      this.tokenStorage.clear();
+    }, err => {
+      this.tokenStorage.clear();
+    })
+
     this.router.navigate(["/login"])
+
   }
 
   home() {

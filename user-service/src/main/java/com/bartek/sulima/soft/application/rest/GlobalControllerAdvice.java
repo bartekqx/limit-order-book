@@ -1,6 +1,6 @@
 package com.bartek.sulima.soft.application.rest;
 
-import com.bartek.sulima.soft.domain.UsernameExistsException;
+import com.bartek.sulima.soft.domain.user.UsernameExistsException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

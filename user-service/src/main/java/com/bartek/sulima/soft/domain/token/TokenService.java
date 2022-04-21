@@ -1,6 +1,7 @@
-package com.bartek.sulima.soft.domain;
+package com.bartek.sulima.soft.domain.token;
 
-import com.bartek.sulima.soft.application.rest.login.TokensDto;
+import com.bartek.sulima.soft.application.rest.login.TokenDto;
+import com.bartek.sulima.soft.domain.DateUtil;
 import com.bartek.sulima.soft.infrastructure.keys.KeysProvider;
 import com.bartek.sulima.soft.infrastructure.jpa.user.UserEntity;
 import io.jsonwebtoken.Jwts;
@@ -18,7 +19,7 @@ public class TokenService {
 
     private final KeysProvider jwtKeyProvider;
 
-    public TokensDto generateTokens(UserEntity userEntity) {
+    public TokenDto generateTokens(UserEntity userEntity) {
         final LocalDateTime now = LocalDateTime.now();
         final LocalDateTime expiryTime = now.plusHours(24);
 
@@ -35,6 +36,6 @@ public class TokenService {
                 .signWith(SignatureAlgorithm.RS256, jwtKeyProvider.getPrivateKey())
                 .compact();
 
-        return new TokensDto(accessToken);
+        return new TokenDto(accessToken, now, expiryTime);
     }
 }

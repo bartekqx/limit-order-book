@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
     }
 
-  displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders'];
+  displayedColumns: string[] = ['code', 'name', 'minPrice', 'maxPrice', 'create-order', 'view-orders', 'analysis'];
 
 
   ngOnInit(): void {
@@ -43,5 +43,9 @@ export class HomeComponent implements OnInit {
   createOrder(instrument: Instrument) {
     this.router.navigate(["/create-order"], { state : { instrumentObj: instrument}})
   }
+
+  analysis(instrument: Instrument) {
+    this.router.navigate(["/analysis"], { state : { instrumentObj: instrument}})
+  } 
 
 }

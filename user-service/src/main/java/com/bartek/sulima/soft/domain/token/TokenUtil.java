@@ -1,4 +1,4 @@
-package com.bartek.sulima.soft.domain;
+package com.bartek.sulima.soft.domain.token;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

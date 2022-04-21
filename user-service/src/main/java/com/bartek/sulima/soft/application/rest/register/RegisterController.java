@@ -1,6 +1,6 @@
 package com.bartek.sulima.soft.application.rest.register;
 
-import com.bartek.sulima.soft.domain.UserService;
+import com.bartek.sulima.soft.domain.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

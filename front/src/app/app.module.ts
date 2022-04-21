@@ -34,6 +34,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MyProfileComponent } from './components/my-profile/my-profile/my-profile.component';
 import { TransactionService } from './services/transaction/transaction-service';
 import { UserService } from './services/user/user.service';
+import { LogoutService } from './services/logout/logout.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { UserService } from './services/user/user.service';
     OrderService,
     TransactionService,
     UserService,
+    LogoutService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent],

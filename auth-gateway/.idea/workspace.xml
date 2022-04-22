@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9daec9a4-cda0-4a78-8d18-1b3171598740" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

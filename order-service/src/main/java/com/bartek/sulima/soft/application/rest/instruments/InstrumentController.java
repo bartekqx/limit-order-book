@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class InstrumentController {
     private final InstrumentService instrumentService;
 
     @GetMapping
-    public ResponseEntity<List<InstrumentDto>> getInstruments() {
-        return ResponseEntity.ok(instrumentService.getInstruments());
+    public Flux<InstrumentDto> getInstruments() {
+        return instrumentService.getInstruments();
     }
 }

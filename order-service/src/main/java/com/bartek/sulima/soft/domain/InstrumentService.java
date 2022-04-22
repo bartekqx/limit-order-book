@@ -5,8 +5,8 @@ import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentEntity;
 import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,11 +15,11 @@ public class InstrumentService {
 
     private final InstrumentRepository instrumentRepository;
 
-    public List<InstrumentDto> getInstruments() {
-        return instrumentRepository.findAll()
+    public Flux<InstrumentDto> getInstruments() {
+        return Flux.fromIterable(instrumentRepository.findAll()
                 .stream()
                 .map(this::mapToDto)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     private InstrumentDto mapToDto(InstrumentEntity entity) {

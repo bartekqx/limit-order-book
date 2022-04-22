@@ -16,6 +16,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -112,7 +114,7 @@ public class OrderService {
                 .build();
     }
 
-    public OrdersDto getOrdersByInstrumentName(String instrumentName) {
+    public Mono<OrdersDto> getOrdersByInstrumentName(String instrumentName) {
         final InstrumentEntity instrumentEntity = instrumentService.findByName(instrumentName);
 
         final List<OrderDto> orders = orderRepository.findByInstrumentName(instrumentName)
@@ -142,10 +144,10 @@ public class OrderService {
                 .filter(orderDto -> "BID".equals(orderDto.getOrderType()))
                 .collect(Collectors.toList());
 
-        return new OrdersDto(askOrders, bidOrders);
+        return Mono.fromCallable(() -> new OrdersDto(askOrders, bidOrders));
     }
 
-    public List<OrdersSerie> getSeriesForPendingOrders(int intervalMinutes) {
+    public Flux<OrdersSerie> getSeriesForPendingOrders(int intervalMinutes) {
         final Instant interval = Instant.now().minus(intervalMinutes, ChronoUnit.MINUTES);
         final List<OrderEntity> orders = orderRepository.findOrdersInInterval(interval);
 
@@ -168,6 +170,6 @@ public class OrderService {
             ordersSeries.add(serie);
         }
 
-        return ordersSeries;
+        return Flux.fromIterable(ordersSeries);
     }
 }

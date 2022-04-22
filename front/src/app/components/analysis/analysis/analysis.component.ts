@@ -33,7 +33,7 @@ export class AnalysisComponent implements OnInit {
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Time [' + this.interval + ' min]';
   pendingOrders_yAxisLabel: string = 'Pending Orders';
-  executedOrders_yAxisLabel: string = 'Executed Orders';
+  executedOrders_yAxisLabel: string = 'Executed  Orders';
   timeline: boolean = true;
   colorScheme: Color = {
     name: 'myScheme',

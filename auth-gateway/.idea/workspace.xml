@@ -5,54 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9daec9a4-cda0-4a78-8d18-1b3171598740" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_buffer_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_codec_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_common_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_handler_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_resolver_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_transport_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/config/security/RouterSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/config/security/RouterSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/src/app/components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/src/app/services/order/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/services/order/order.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/rest/orders/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/rest/orders/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/rest/orders/OrdersSerie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/rest/orders/OrdersSeriesXYDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/rest/orders/OrdersSeries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSerie$OrdersSerieBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSerie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_60.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_60.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_6_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_6_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_6_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_6_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/application/rest/OrdersSerie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/application/rest/OrdersSeriesXYDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../transaction-service/transaction-history.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/transaction-history.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

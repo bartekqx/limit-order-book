@@ -68,8 +68,7 @@ public class OrderService {
     private void processBidCreatedOrder(OrderEntity createdOrder) {
         orderRepository.findAskByInstrumentNameAndPriceAndQuantity(
                 createdOrder.getInstrumentName(),
-                createdOrder.getPrice(),
-                createdOrder.getQuantity())
+                createdOrder.getPrice())
                 .stream()
                 .min(Comparator.comparing(OrderEntity::getPrice))
                 .ifPresent(orderEntity -> processMatchedOrder(createdOrder, orderEntity));
@@ -78,42 +77,48 @@ public class OrderService {
     private void processAskCreatedOrder(OrderEntity createdOrder) {
         orderRepository.findBidByInstrumentNameAndPriceAndQuantity(
                 createdOrder.getInstrumentName(),
-                createdOrder.getPrice(),
-                createdOrder.getQuantity())
+                createdOrder.getPrice())
                 .stream()
                 .max(Comparator.comparing(OrderEntity::getPrice))
                 .ifPresent(orderEntity -> processMatchedOrder(createdOrder, orderEntity));
     }
 
-    private void processMatchedOrder(OrderEntity createdOrder, OrderEntity orderEntity) {
-        final int quantityLeft = orderEntity.getQuantity() - createdOrder.getQuantity();
-
+    private void processMatchedOrder(OrderEntity createdOrder, OrderEntity matchedOrder) {
         int executedOrders;
-        if (quantityLeft == 0) {
-            orderRepository.delete(orderEntity);
-            executedOrders = 2;
-        } else {
-            orderEntity.setQuantity(quantityLeft);
-            orderRepository.save(orderEntity);
-            executedOrders = 1;
-        }
 
-        orderRepository.delete(createdOrder);
+        if (createdOrder.getQuantity() > matchedOrder.getQuantity()) {
+            final int quantityLeft = createdOrder.getQuantity() - matchedOrder.getQuantity();
+            createdOrder.setQuantity(quantityLeft);
+            orderRepository.save(createdOrder);
+            orderRepository.delete(matchedOrder);
+            executedOrders = 1;
+
+        } else if (createdOrder.getQuantity() < matchedOrder.getQuantity()) {
+            final int quantityLeft = matchedOrder.getQuantity() - createdOrder.getQuantity();
+            matchedOrder.setQuantity(quantityLeft);
+            orderRepository.save(matchedOrder);
+            orderRepository.delete(createdOrder);
+            executedOrders = 1;
+        } else {
+            orderRepository.delete(matchedOrder);
+            orderRepository.delete(createdOrder);
+            executedOrders = 2;
+        }
 
         transactionSender.send(Transaction.builder()
                 .transactionId(UUID.randomUUID().toString())
-                .instrumentName(orderEntity.getInstrumentName())
+                .instrumentName(matchedOrder.getInstrumentName())
                 .createdTime(Instant.now())
                 .orders(List.of(
                         mapToOrder(createdOrder),
-                        mapToOrder(orderEntity)
+                        mapToOrder(matchedOrder)
                 ))
                 .build());
 
         for (int i = 0; i < executedOrders; i++) {
             ordersSerieSink.tryEmitNext(OrdersSeries.builder()
-                    .instrumentName(orderEntity.getInstrumentName())
-                    .counter(pendingOrdersCounterMap.get(orderEntity.getInstrumentName()).decrementAndGet())
+                    .instrumentName(matchedOrder.getInstrumentName())
+                    .counter(pendingOrdersCounterMap.get(matchedOrder.getInstrumentName()).decrementAndGet())
                     .timestamp(Instant.now().toEpochMilli())
                     .build());
         }

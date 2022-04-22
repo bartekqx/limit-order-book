@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface Instrument {
@@ -31,12 +31,18 @@ export interface OrdersSeriesXY {
   value: number
 }
 
+export interface OrderSeriesDto {
+  instrumentName: string;
+  timestamp: number
+  counter: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  constructor(private http:HttpClient) {
+  constructor(private zone: NgZone, private http:HttpClient) {
 
    }
 
@@ -48,8 +54,22 @@ export class OrderService {
     return this.http.get<Orders>("http://localhost:8901/order-service/orders/" + instrumentName);
   }
 
-  getPendingOrders(interval: number): Observable<OrdersSeries[]> {
-    return this.http.get<OrdersSeries[]>("http://localhost:8901/order-service/orders/series/pending-orders/" + interval);
+  getPendingOrders(): Observable<MessageEvent> {
+    const eventSource = new EventSource("http://localhost:8901/order-service/orders/series/pending-orders");
+    return new Observable(observer => {
+
+      eventSource.onmessage = event => {
+          this.zone.run(() => {
+            observer.next(event);
+          });
+      };
+
+      eventSource.onerror = error => {
+        this.zone.run(() => {
+          observer.error(error);
+        });
+    };
+    })
   }
 
   placeOrder(order:Order) {

@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrdersSeriesXYDto {
-    private long name;
-    private int value;
+public class OrdersSeries {
+
+    private String instrumentName;
+    private long timestamp;
+    private int counter;
 }

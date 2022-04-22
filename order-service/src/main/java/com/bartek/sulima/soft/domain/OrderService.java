@@ -1,7 +1,6 @@
 package com.bartek.sulima.soft.domain;
 
-import com.bartek.sulima.soft.application.rest.orders.OrdersSerie;
-import com.bartek.sulima.soft.application.rest.orders.OrdersSeriesXYDto;
+import com.bartek.sulima.soft.application.rest.orders.OrdersSeries;
 import com.bartek.sulima.soft.domain.dto.InstrumentDto;
 import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.bartek.sulima.soft.domain.dto.OrdersDto;
@@ -16,12 +15,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.Sinks;
 
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,6 +32,8 @@ public class OrderService {
     private final TokenUtil tokenUtil;
     private final OrderCreatedSender orderCreatedSender;
     private final TransactionSender transactionSender;
+    private final Sinks.Many<OrdersSeries> ordersSerieSink;
+    private final Map<String, AtomicInteger> pendingOrdersCounterMap;
 
     public void createOrder(String tokenHeader, OrderDto orderDto) throws JsonProcessingException {
         final String userId = tokenUtil.getUserIdFromToken(tokenHeader);
@@ -48,6 +49,11 @@ public class OrderService {
 
         orderRepository.save(orderEntity);
         orderCreatedSender.send(orderEntity);
+        ordersSerieSink.tryEmitNext(OrdersSeries.builder()
+                .instrumentName(orderEntity.getInstrumentName())
+                .counter(pendingOrdersCounterMap.get(orderEntity.getInstrumentName()).incrementAndGet())
+                .timestamp(orderEntity.getCreateTime().toEpochMilli())
+                .build());
     }
 
     @Transactional
@@ -82,11 +88,14 @@ public class OrderService {
     private void processMatchedOrder(OrderEntity createdOrder, OrderEntity orderEntity) {
         final int quantityLeft = orderEntity.getQuantity() - createdOrder.getQuantity();
 
+        int executedOrders;
         if (quantityLeft == 0) {
             orderRepository.delete(orderEntity);
+            executedOrders = 2;
         } else {
             orderEntity.setQuantity(quantityLeft);
             orderRepository.save(orderEntity);
+            executedOrders = 1;
         }
 
         orderRepository.delete(createdOrder);
@@ -100,6 +109,14 @@ public class OrderService {
                         mapToOrder(orderEntity)
                 ))
                 .build());
+
+        for (int i = 0; i < executedOrders; i++) {
+            ordersSerieSink.tryEmitNext(OrdersSeries.builder()
+                    .instrumentName(orderEntity.getInstrumentName())
+                    .counter(pendingOrdersCounterMap.get(orderEntity.getInstrumentName()).decrementAndGet())
+                    .timestamp(Instant.now().toEpochMilli())
+                    .build());
+        }
     }
 
     private Order mapToOrder(OrderEntity orderEntity) {
@@ -145,31 +162,5 @@ public class OrderService {
                 .collect(Collectors.toList());
 
         return Mono.fromCallable(() -> new OrdersDto(askOrders, bidOrders));
-    }
-
-    public Flux<OrdersSerie> getSeriesForPendingOrders(int intervalMinutes) {
-        final Instant interval = Instant.now().minus(intervalMinutes, ChronoUnit.MINUTES);
-        final List<OrderEntity> orders = orderRepository.findOrdersInInterval(interval);
-
-        final Map<String, List<OrderEntity>> ordersByInstrument = orders.stream().collect(Collectors.groupingBy(OrderEntity::getInstrumentName));
-        final List<OrdersSerie> ordersSeries = new ArrayList<>();
-
-        for (Map.Entry<String, List<OrderEntity>> entry : ordersByInstrument.entrySet()) {
-
-            int counter = 0;
-            final List<OrdersSeriesXYDto> series = new ArrayList<>();
-            for (OrderEntity orderEntity : entry.getValue()) {
-                series.add(new OrdersSeriesXYDto(orderEntity.getCreateTime().toEpochMilli(), ++counter));
-            }
-
-            final OrdersSerie serie = OrdersSerie.builder()
-                    .name(entry.getKey())
-                    .series(series)
-                    .build();
-
-            ordersSeries.add(serie);
-        }
-
-        return Flux.fromIterable(ordersSeries);
     }
 }

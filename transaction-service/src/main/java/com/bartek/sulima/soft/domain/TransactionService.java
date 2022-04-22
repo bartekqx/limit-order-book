@@ -1,7 +1,6 @@
 package com.bartek.sulima.soft.domain;
 
-import com.bartek.sulima.soft.application.rest.OrdersSerie;
-import com.bartek.sulima.soft.application.rest.OrdersSeriesXYDto;
+import com.bartek.sulima.soft.application.rest.OrdersSeries;
 import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.bartek.sulima.soft.domain.dto.TransactionDto;
 import com.bartek.sulima.soft.domain.model.Order;
@@ -11,37 +10,49 @@ import com.bartek.sulima.soft.infrastructure.jpa.order.OrderRepository;
 import com.bartek.sulima.soft.infrastructure.jpa.transaction.TransactionEntity;
 import com.bartek.sulima.soft.infrastructure.jpa.transaction.TransactionRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Sinks;
 
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final OrderRepository orderRepository;
     private final TokenUtil tokenUtil;
+    private final ConcurrentHashMap<String, AtomicInteger> executedOrdersCounter;
+    private final Sinks.Many<OrdersSeries> ordersSerieSink;
 
-    public List<TransactionDto> getTransactionsForUser(String tokenHeader) throws JsonProcessingException {
+    public TransactionService(TransactionRepository transactionRepository,
+                              OrderRepository orderRepository,
+                              TokenUtil tokenUtil,
+                              Sinks.Many<OrdersSeries> ordersSerieSink) {
+        this.transactionRepository = transactionRepository;
+        this.orderRepository = orderRepository;
+        this.tokenUtil = tokenUtil;
+        this.ordersSerieSink = ordersSerieSink;
+        executedOrdersCounter = new ConcurrentHashMap<>();
+    }
+
+    public Flux<TransactionDto> getTransactionsForUser(String tokenHeader) throws JsonProcessingException {
         final String userId = tokenUtil.getUserIdFromToken(tokenHeader);
 
         final List<OrderEntity> orders = orderRepository.findAllByUserId(userId);
 
-        return orders.stream()
+        return Flux.fromIterable(orders.stream()
                 .map(order -> TransactionDto.builder()
                         .transactionId(order.getTransaction().getId())
                         .order(mapToDto(order))
                         .build())
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     public void save(Transaction transaction) {
@@ -57,32 +68,17 @@ public class TransactionService {
         orderEntities.forEach(orderRepository::save);
 
         log.info("Transaction saved successfully, {} ", transactionEntity);
-    }
 
-    public List<OrdersSerie>  getExecutedOrders(int intervalMinutes) {
-        final Instant interval = Instant.now().minus(intervalMinutes, ChronoUnit.MINUTES);
-        final List<OrderEntity> orders = orderRepository.findOrdersInInterval(interval);
+        final AtomicInteger counter = executedOrdersCounter.getOrDefault(transactionEntity.getInstrumentName(), new AtomicInteger());
+        counter.incrementAndGet();
+        executedOrdersCounter.put(transactionEntity.getInstrumentName(), counter);
 
-        final Map<String, List<OrderEntity>> ordersByInstrument = orders.stream().collect(Collectors.groupingBy(OrderEntity::getInstrumentName));
-        final List<OrdersSerie> ordersSeries = new ArrayList<>();
+        ordersSerieSink.tryEmitNext(OrdersSeries.builder()
+                .instrumentName(transactionEntity.getInstrumentName())
+                .counter(counter.get())
+                .timestamp(Instant.now().toEpochMilli())
+                .build());
 
-        for (Map.Entry<String, List<OrderEntity>> entry : ordersByInstrument.entrySet()) {
-
-            int counter = 0;
-            final List<OrdersSeriesXYDto> series = new ArrayList<>();
-            for (OrderEntity orderEntity : entry.getValue()) {
-                series.add(new OrdersSeriesXYDto(orderEntity.getCreateTime().toEpochMilli(), ++counter));
-            }
-
-            final OrdersSerie ordersSerie = OrdersSerie.builder()
-                    .name(entry.getKey())
-                    .series(series)
-                    .build();
-
-            ordersSeries.add(ordersSerie);
-        }
-
-        return ordersSeries;
     }
 
 

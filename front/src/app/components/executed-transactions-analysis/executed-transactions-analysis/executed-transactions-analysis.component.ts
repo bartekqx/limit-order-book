@@ -8,17 +8,18 @@ import { TransactionService } from 'src/app/services/transaction/transaction-ser
 
 
 @Component({
-  selector: 'app-analysis',
-  templateUrl: './analysis.component.html',
-  styleUrls: ['./analysis.component.css']
+  selector: 'app-executed-transactions-analysis',
+  templateUrl: './executed-transactions-analysis.component.html',
+  styleUrls: ['./executed-transactions-analysis.component.css']
 })
-export class AnalysisComponent implements OnInit {
+export class ExecutedTransactionsAnalysisComponent implements OnInit {
 
-  constructor(private router:Router, private orderService:OrderService) {
+
+  constructor(private router:Router, private orderService:OrderService, private transactionService:TransactionService) {
   }
 
   instrumentsNames: string[] = [] ;
-  pendingOrders: OrdersSeries[] = [] ;
+  executedOrders: OrdersSeries[] = [] ;
   view: [number, number] = [1000,700];
 
   legend: boolean = true;
@@ -29,7 +30,7 @@ export class AnalysisComponent implements OnInit {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Time';
-  pendingOrders_yAxisLabel: string = 'Pending Orders';
+  executedOrders_yAxisLabel: string = 'Executed Transactions';
   timeline: boolean = true;
   colorScheme: Color = {
     name: 'myScheme',
@@ -54,12 +55,11 @@ export class AnalysisComponent implements OnInit {
   ngOnInit(): void {
     this.initSeries();
 
-
-    this.orderService.getPendingOrders().subscribe((event) => {
+    this.transactionService.getExecutedOrders().subscribe(event => {
       let ordersSeriesJSON = JSON.parse(event.data); 
-      let pendingOrders = <OrderSeriesDto>ordersSeriesJSON;
+      let executedTransactions = <OrderSeriesDto>ordersSeriesJSON;
 
-      this.setPendingOrderSeries(pendingOrders);
+      this.setExecutedOrderSeries(executedTransactions);
     })
   }
 
@@ -71,28 +71,27 @@ export class AnalysisComponent implements OnInit {
           series: []
         } as OrdersSeries;
   
-        this.pendingOrders.push(orderSerie);
+        this.executedOrders.push(orderSerie);
       }
     })
 
   }
 
-  private setPendingOrderSeries(ordersSeries:OrderSeriesDto) {
-    for (const pendingOrder of this.pendingOrders) {
+  private setExecutedOrderSeries(ordersSeries:OrderSeriesDto) {
+    for (const executedOrder of this.executedOrders) {
       
-      if (pendingOrder.name === ordersSeries.instrumentName) {
-      
+      if (executedOrder.name === ordersSeries.instrumentName) {
+
         const orderSerieXY = {  
           name: new Date(ordersSeries.timestamp),
           value: ordersSeries.counter
         } as OrdersSeriesXY;
 
-        pendingOrder.series.push(orderSerieXY)
+        executedOrder.series.push(orderSerieXY)
       }
     }
-    this.pendingOrders = [...this.pendingOrders];
+    this.executedOrders = [...this.executedOrders];
   }
-
   
   yAxisFormat(val : any) {
     if (val % 1 > 0) return "";

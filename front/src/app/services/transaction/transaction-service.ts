@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OrdersSeries } from '../order/order.service';
 
@@ -22,7 +22,7 @@ export interface ExecutedOrder {
 })
 export class TransactionService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private zone: NgZone, private http:HttpClient) { }
 
   public getUserTransactions (): Observable<Transaction[]>  {
 
@@ -31,9 +31,22 @@ export class TransactionService {
     }
 
   
-    getExecutedOrders(interval: number): Observable<OrdersSeries[]> {
-      return this.http.get<OrdersSeries[]>("http://localhost:8901/transaction-service/transactions/series/executed-orders/" + interval);
-    }
-  
+  getExecutedOrders(): Observable<MessageEvent> {
+    const eventSource = new EventSource("http://localhost:8901/transaction-service/transactions/series/executed-orders");
+    return new Observable(observer => {
+
+      eventSource.onmessage = event => {
+          this.zone.run(() => {
+            observer.next(event);
+          });
+      };
+
+      eventSource.onerror = error => {
+        this.zone.run(() => {
+          observer.error(error);
+        });
+    };
+    })
+  }
 
 }

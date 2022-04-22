@@ -5,14 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrdersSerie {
+public class OrdersSeries {
 
-    private String name;
-    private List<OrdersSeriesXYDto> series;
+    private String instrumentName;
+    private long timestamp;
+    private int counter;
 }

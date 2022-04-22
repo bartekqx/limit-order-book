@@ -37,6 +37,7 @@ import { UserService } from './services/user/user.service';
 import { LogoutService } from './services/logout/logout.service';
 import { AnalysisComponent } from './components/analysis/analysis/analysis.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ExecutedTransactionsAnalysisComponent } from './components/executed-transactions-analysis/executed-transactions-analysis/executed-transactions-analysis.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     CreateOrderComponent,
     ViewOrdersComponent,
     MyProfileComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    ExecutedTransactionsAnalysisComponent
   ],
   imports: [
     BrowserModule,

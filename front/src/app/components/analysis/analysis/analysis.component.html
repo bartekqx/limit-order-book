@@ -1,13 +1,11 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="main-chart">
-    <ngx-charts-line-chart [results]="pendingOrders" [view]="view" [scheme]="colorScheme" [yAxisTickFormatting]="xAxisFormat" [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="pendingOrders_yAxisLabel"
+    <ngx-charts-line-chart [results]="pendingOrders" [view]="view" [scheme]="colorScheme" [yAxisTickFormatting]="yAxisFormat" [xAxisTickFormatting]="xAxisFormat" [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="pendingOrders_yAxisLabel"
     [timeline]="timeline">
     </ngx-charts-line-chart>
 </div>
 
 <div class="main-chart">
-    <ngx-charts-line-chart [results]="executedOrders" [view]="view" [scheme]="colorScheme" [yAxisTickFormatting]="xAxisFormat" [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="executedOrders_yAxisLabel"
-    [timeline]="timeline">
-    </ngx-charts-line-chart>
+    <app-executed-transactions-analysis></app-executed-transactions-analysis>
 </div>

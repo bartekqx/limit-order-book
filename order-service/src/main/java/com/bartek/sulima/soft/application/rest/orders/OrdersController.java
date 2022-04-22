@@ -5,7 +5,7 @@ import com.bartek.sulima.soft.domain.dto.OrderDto;
 import com.bartek.sulima.soft.domain.dto.OrdersDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebExchange;
@@ -13,15 +13,18 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
-import java.util.List;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.util.function.Function;
 
 @RestController
+@CrossOrigin(value = "*", origins = "*", originPatterns = "*")
 @RequestMapping("/orders")
 @RequiredArgsConstructor
 public class OrdersController {
 
     private final OrderService orderService;
-    private final Sinks.Many<OrdersSerie> ordersSerieSink;
+    private final Sinks.Many<OrdersSeries> ordersSerieSink;
 
     @PostMapping
     public Mono<Void> createOrder(ServerWebExchange exchange, @RequestBody OrderDto orderDto) throws JsonProcessingException {
@@ -34,9 +37,9 @@ public class OrdersController {
         return orderService.getOrdersByInstrumentName(instrumentName);
     }
 
-    @GetMapping("/series/pending-orders/{interval}")
-    public Flux<OrdersSerie> getPendingOrders(@PathVariable int interval) {
-        return orderService.getSeriesForPendingOrders(interval);
+    @GetMapping(value = "/series/pending-orders", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<OrdersSeries> getPendingOrders() {
+        return ordersSerieSink.asFlux();
     }
 
     private String getAuthHeader(ServerWebExchange exchange) {

@@ -11,7 +11,9 @@ public class RouterSecurity {
 
     private static final List<String> NOT_SECURED_ENDPOINTS = Arrays.asList(
             "/sign-up",
-            "/sign-in"
+            "/sign-in",
+            "/pending-orders",
+            "/executed-orders"
     );
 
     public boolean isEndpointSecured(ServerHttpRequest request) {

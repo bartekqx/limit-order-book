@@ -68,26 +68,37 @@ public class OrderService {
     }
 
     private void processBidCreatedOrder(OrderEntity createdOrder) {
-        orderRepository.findAskByInstrumentNameAndPriceAndQuantity(
+        List<OrderEntity> matchedOrders = orderRepository.findAskByInstrumentNameAndPriceAndQuantity(
                 createdOrder.getInstrumentName(),
-                createdOrder.getPrice())
-                .stream()
-                .min(Comparator.comparing(OrderEntity::getPrice)
-                        .thenComparing(OrderEntity::getCreateTime))
-                .ifPresent(orderEntity -> processMatchedOrder(createdOrder, orderEntity));
+                createdOrder.getPrice());
+
+        if (!matchedOrders.isEmpty()) {
+            processMatchedOrder(createdOrder, matchedOrders);
+        }
     }
 
     private void processAskCreatedOrder(OrderEntity createdOrder) {
-        orderRepository.findBidByInstrumentNameAndPriceAndQuantity(
+        List<OrderEntity> matchedOrders = orderRepository.findBidByInstrumentNameAndPriceAndQuantity(
                 createdOrder.getInstrumentName(),
-                createdOrder.getPrice())
-                .stream()
-                .max(Comparator.comparing(OrderEntity::getPrice))
-                .ifPresent(orderEntity -> processMatchedOrder(createdOrder, orderEntity));
+                createdOrder.getPrice());
+
+        if (!matchedOrders.isEmpty()) {
+            processMatchedOrder(createdOrder, matchedOrders);
+        }
     }
 
-    private void processMatchedOrder(OrderEntity createdOrder, OrderEntity matchedOrder) {
+    private void processMatchedOrder(OrderEntity createdOrder, List<OrderEntity> matchedOrder) {
+        for (OrderEntity orderEntity : matchedOrder) {
+            boolean createdOrderDeleted = process(createdOrder, orderEntity);
+            if (createdOrderDeleted) {
+                return;
+            }
+        }
+    }
+
+    public boolean process(OrderEntity createdOrder, OrderEntity matchedOrder) {
         int executedOrders;
+        boolean createdOrderDeleted = false;
 
         if (createdOrder.getQuantity() > matchedOrder.getQuantity()) {
             final int quantityLeft = createdOrder.getQuantity() - matchedOrder.getQuantity();
@@ -102,10 +113,12 @@ public class OrderService {
             orderRepository.save(matchedOrder);
             orderRepository.delete(createdOrder);
             executedOrders = 1;
+            createdOrderDeleted = true;
         } else {
             orderRepository.delete(matchedOrder);
             orderRepository.delete(createdOrder);
             executedOrders = 2;
+            createdOrderDeleted = true;
         }
 
         transactionSender.send(Transaction.builder()
@@ -125,6 +138,8 @@ public class OrderService {
                     .timestamp(Instant.now().toEpochMilli())
                     .build());
         }
+
+        return createdOrderDeleted;
     }
 
     private Order mapToOrder(OrderEntity orderEntity) {

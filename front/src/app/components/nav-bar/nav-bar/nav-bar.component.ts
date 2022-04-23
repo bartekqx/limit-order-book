@@ -39,10 +39,23 @@ export class NavBarComponent implements OnInit {
 
   home() {
     this.router.navigate(["/home"])
+    .then(() => {
+      window.location.reload();
+    });
+  }
+
+  analysis() {
+    this.router.navigate(["/analysis"])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
   myProfile() {
     this.router.navigate(["/my-profile"])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
   get isLoggedIn(): boolean {

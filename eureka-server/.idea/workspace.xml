@@ -5,62 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f4f4aa4-112d-4339-b89f-331d4acd08da" name="Default Changelist" comment="Front - added basic login form and logic behind it&#10;&#10;(cherry picked from commit ce91b954f98c85b26f9fb592990f974cc138a25b)">
-      <change afterPath="$PROJECT_DIR$/../auth-gateway/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-gateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/src/main/java/com/bartek/sulima/soft/application/config/CorsConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../auth-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/AuthGatewayServiceApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/application/config/CorsConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/application/config/security/AuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/application/config/security/RouterSecurity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/domain/JwtUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/infrastructure/KeysProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/com/bartek/sulima/soft/infrastructure/ResourceUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../auth-gateway/target/classes/keys/public-key.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/EurekaServerApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/OrderServiceApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/ObjectMapperConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/instruments/InstrumentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSeries$OrdersSeriesBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSeries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/InstrumentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/TokenUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/InstrumentDto$InstrumentDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/InstrumentDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrderDto$OrderDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrderDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrdersDto$OrdersDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrdersDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Order$OrderBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Transaction$TransactionBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Transaction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity$InstrumentEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity$OrderEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/nav-bar/nav-bar/nav-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/nav-bar/nav-bar/nav-bar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

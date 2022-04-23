@@ -13,7 +13,7 @@ export class MyProfileComponent implements OnInit {
   constructor(private transactionService:TransactionService, private userService:UserService) { }
 
   transactions:Transaction[] = [];
-  user: User;
+  user?: User;
   displayedColumns: string[] = ['id', 'orderId', 'orderType', 'price', 'quantity'];
    
   ngOnInit(): void {

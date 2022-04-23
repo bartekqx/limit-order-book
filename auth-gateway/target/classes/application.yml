@@ -6,15 +6,14 @@ spring:
     name: auth-gateway
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
-        cors-configurations:
+        corsConfigurations:
           '[/**]':
-            allowed-origins:
-              - "*"
-            allowed-methods:
-              - "*"
-            allowed-headers:
-              - "*"
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
       discovery:
         locator:
           enabled: 'true'

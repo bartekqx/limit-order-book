@@ -13,6 +13,7 @@ import com.bartek.sulima.soft.infrastructure.kafka.order.created.OrderCreatedSen
 import com.bartek.sulima.soft.infrastructure.kafka.order.transaction.TransactionSender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
@@ -24,6 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class OrderService {
 
@@ -70,7 +72,8 @@ public class OrderService {
                 createdOrder.getInstrumentName(),
                 createdOrder.getPrice())
                 .stream()
-                .min(Comparator.comparing(OrderEntity::getPrice))
+                .min(Comparator.comparing(OrderEntity::getPrice)
+                        .thenComparing(OrderEntity::getCreateTime))
                 .ifPresent(orderEntity -> processMatchedOrder(createdOrder, orderEntity));
     }
 

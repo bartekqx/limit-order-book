@@ -5,8 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9daec9a4-cda0-4a78-8d18-1b3171598740" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bartek/sulima/soft/application/config/CorsConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/AuthGatewayServiceApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/application/config/CorsConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/application/config/security/AuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/application/config/security/RouterSecurity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/domain/JwtUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/KeysProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bartek/sulima/soft/infrastructure/ResourceUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/keys/public-key.pem" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-server/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-server/target/classes/com/bartek/sulima/soft/EurekaServerApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/OrderServiceApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/ObjectMapperConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/sinks/OrdersSerieSinkConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/instruments/InstrumentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSeries$OrdersSeriesBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/rest/orders/OrdersSeries.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/InstrumentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/TokenUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/InstrumentDto$InstrumentDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/InstrumentDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrderDto$OrderDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrderDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrdersDto$OrdersDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/dto/OrdersDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Order$OrderBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Transaction$TransactionBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/model/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity$InstrumentEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/instrument/InstrumentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity$OrderEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/created/OrderCreatedStream.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/infrastructure/kafka/order/transaction/TransactionStream.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +109,7 @@
       <recent name="com.bartek.sulima.soft" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AuthGatewayServiceApp">
     <configuration name="AuthGatewayServiceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bartek.sulima.soft.AuthGatewayServiceApp" />
       <module name="auth-gateway" />
@@ -70,9 +123,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/limit-order-book/auth-gateway" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AuthGatewayServiceApp" />
+        <item itemvalue="Gradle.C:/limit-order-book/auth-gateway" />
       </list>
     </recent_temporary>
   </component>

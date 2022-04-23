@@ -1,0 +1,106 @@
+version: "3.8"
+
+services:
+
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    ports:
+      - "2181:2181"
+    networks:
+      - order-book-network
+
+  kafka:
+    image: wurstmeister/kafka:2.11-2.0.0
+    links:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    hostname: kafka
+    networks:
+      - order-book-network
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - "zookeeper"
+
+  eureka-server:
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8900:8900"
+    networks:
+      - order-book-network
+    environment:
+      eureka.instance.hostname: eureka-server
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
+
+  auth-gateway:
+    build:
+      context: ./auth-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8901:8901"
+    networks:
+      - order-book-network
+    depends_on:
+      - eureka-server
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    networks:
+      - order-book-network
+    depends_on:
+      - eureka-server
+    ports:
+      - "8902:8902"
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
+
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    networks:
+      - order-book-network
+    depends_on:
+      - eureka-server
+      - kafka
+    ports:
+      - "8903:8903"
+    environment:
+      spring.cloud.stream.kafka.binder.brokers: kafka:9092
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
+
+  transaction-service:
+    build:
+      context: ./transaction-service
+      dockerfile: Dockerfile
+    networks:
+      - order-book-network
+    depends_on:
+      - eureka-server
+      - kafka
+    ports:
+      - "8904:8904"
+    environment:
+      spring.cloud.stream.kafka.binder.brokers: kafka:9092
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
+
+  angular-front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+networks:
+  order-book-network:
+    driver: bridge

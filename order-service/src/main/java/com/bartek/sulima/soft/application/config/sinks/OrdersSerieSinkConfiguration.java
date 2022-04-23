@@ -5,7 +5,7 @@ import com.bartek.sulima.soft.application.rest.orders.OrdersSeries;
 import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentEntity;
 import com.bartek.sulima.soft.infrastructure.jpa.instrument.InstrumentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Sinks;
@@ -15,6 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Configuration
+@Slf4j
 @RequiredArgsConstructor
 public class OrdersSerieSinkConfiguration {
 
@@ -26,8 +27,8 @@ public class OrdersSerieSinkConfiguration {
     }
 
     @Bean
-    @ConditionalOnBean(InstrumentInitializer.class)
-    public Map<String, AtomicInteger> pendingOrdersCounterMap() {
+    public Map<String, AtomicInteger> pendingOrdersCounterMap(InstrumentInitializer instrumentInitializer) {
+        instrumentInitializer.initializeInstruments();
         return instrumentRepository.findAll()
                 .stream()
                 .map(InstrumentEntity::getName)

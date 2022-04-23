@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/services/order/order.service';
 import { Transaction, TransactionService } from 'src/app/services/transaction/transaction-service';
@@ -14,10 +15,13 @@ export class MyProfileComponent implements OnInit {
 
   transactions:Transaction[] = [];
   user?: User;
-  displayedColumns: string[] = ['id', 'orderId', 'orderType', 'price', 'quantity'];
+  displayedColumns: string[] = ['id', 'creationTime', 'orderId', 'orderType', 'price', 'quantity'];
    
   ngOnInit(): void {
    this.transactionService.getUserTransactions().subscribe(res => {
+     for (const transaction of res) {
+       transaction.createdTime = new Date(transaction.createdTime).toLocaleString();
+     }
     this.transactions = res;
    },
    err => {
@@ -33,6 +37,16 @@ export class MyProfileComponent implements OnInit {
 
   }
 
+  setDateTime(dateTime) {
+    let pipe = new DatePipe('en-US');
+
+    const time = pipe.transform(dateTime, 'mediumTime', 'UTC');
+
+    const date = pipe.transform(dateTime, 'MM/dd/yyyy', 'UTC');
+
+    return date + ' ' + time;
+  }
+  
   changePassword() {
 
   }

@@ -29,13 +29,25 @@
         <mat-form-field>
           <input matInput type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
           <mat-error>
-            Please confirm your password
+            Please enter your firstName
           </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required>
           <mat-error>
-            Please confirm your password
+            Please enter your lastName
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" placeholder="Phone number" [(ngModel)]="phone" name="phone" required>
+          <mat-error>
+            Please enter valid phone number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="emai" required>
+          <mat-error>
+            Please enter valid email
           </mat-error>
         </mat-form-field>
       <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">Register</button>

@@ -6,6 +6,8 @@ export interface SignUpDto {
   password: string;
   firstName: string;
   lastName: string;
+  phone?: number;
+  email: string;
 }
 
 @Injectable({

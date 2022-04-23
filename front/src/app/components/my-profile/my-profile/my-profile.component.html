@@ -13,7 +13,18 @@
         <mat-label>Last name</mat-label>
         <input matInput disabled value={{user?.lastName}}>
       </mat-form-field></td>
-    </tr></table>
+    </tr>
+    <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput disabled value={{user?.email}}>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone number</mat-label>
+        <input matInput disabled value={{user?.phoneNumber}}>
+      </mat-form-field></td>
+    </tr>
+  </table>
 
     <!-- <div class="change-pass-button">
         <button mat-raised-button color="primary" (click)="changePassword()">Change Password</button> 
@@ -22,7 +33,7 @@
 </div>
 
 <div class="my-profile-view">
-    <div class ="my-header">
+    <div class ="executed-transactions-header">
         <h1>Executed transactions</h1>
     </div>
     <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
@@ -32,6 +43,12 @@
         <th mat-header-cell *matHeaderCellDef> Transaction id </th>
         <td mat-cell *matCellDef="let transaction"> {{transaction.transactionId}} </td>
       </ng-container>
+
+    <!-- CreatedTime Column -->
+    <ng-container matColumnDef="creationTime">
+      <th mat-header-cell *matHeaderCellDef> Creation time </th>
+      <td mat-cell *matCellDef="let transaction"> {{transaction.createdTime}} </td>
+    </ng-container>
 
       <!-- Order Id Column -->
       <ng-container matColumnDef="orderId">

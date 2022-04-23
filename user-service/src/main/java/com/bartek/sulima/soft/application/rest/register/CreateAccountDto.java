@@ -11,5 +11,7 @@ public class CreateAccountDto {
     private final String password;
     private final String firstName;
     private final String lastName;
+    private final String email;
+    private final int phoneNumber;
 
 }

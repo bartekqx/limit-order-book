@@ -10,7 +10,6 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
     List<OrderEntity> findAllByUserId(String userId);
 
-
     @Query("SELECT o FROM OrderEntity o WHERE o.createTime >= ?1 order by o.createTime")
     List<OrderEntity> findOrdersInInterval(Instant interval);
 

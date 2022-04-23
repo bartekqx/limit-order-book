@@ -5,6 +5,7 @@ import { OrdersSeries } from '../order/order.service';
 
 export interface Transaction {
   transactionId: string;
+  createdTime: string;
   order: ExecutedOrder;
 }
 
@@ -15,6 +16,7 @@ export interface ExecutedOrder {
   orderType: string;
   price: number;
   quantity: number;
+  createdTime: Date;
 }
 
 @Injectable({

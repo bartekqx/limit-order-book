@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   password:string = "";
   firstName:string = "";
   lastName:string = "";
+  phone?:number;
+  email:string = "";
   confirmedPassword:string = "";
   passwordsNotMatch:boolean = false;
   usernameExists:boolean = false;
@@ -34,6 +36,8 @@ export class RegisterComponent implements OnInit {
     signUpDto.password = this.password;
     signUpDto.firstName = this.firstName;
     signUpDto.lastName = this.lastName;
+    signUpDto.phone = this.phone;
+    signUpDto.email = this.email;
 
     const rsp = this.signUpService.register(signUpDto);
 

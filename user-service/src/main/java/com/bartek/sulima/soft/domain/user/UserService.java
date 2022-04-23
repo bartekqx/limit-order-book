@@ -33,6 +33,8 @@ public class UserService {
                 .username(createAccountDto.getUsername())
                 .firstName(createAccountDto.getFirstName())
                 .lastName(createAccountDto.getLastName())
+                .phoneNumber(createAccountDto.getPhoneNumber())
+                .email(createAccountDto.getEmail())
                 .build();
 
         userRepository.save(userEntity);
@@ -46,6 +48,8 @@ public class UserService {
                         .id(userEntity.getUserId())
                         .firstName(userEntity.getFirstName())
                         .lastName(userEntity.getLastName())
+                        .phoneNumber(userEntity.getPhoneNumber())
+                        .email(userEntity.getEmail())
                         .build())
                 .orElseThrow(() -> new IllegalStateException("User not found!"));
     }

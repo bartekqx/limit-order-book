@@ -27,6 +27,12 @@
   }
 
   .my-header {
-    padding-right: 28%;
+    /* margin-left: 5%; */
+    text-align: center;
+  }
+
+  
+  .executed-transactions-header {
+    margin-right: 30%;
     text-align: center;
   }

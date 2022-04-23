@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -51,6 +50,7 @@ public class TransactionService {
                 .map(order -> TransactionDto.builder()
                         .transactionId(order.getTransaction().getId())
                         .order(mapToDto(order))
+                        .createdTime(order.getTransaction().getCreatedTime().toEpochMilli())
                         .build())
                 .collect(Collectors.toList()));
     }
@@ -76,7 +76,7 @@ public class TransactionService {
         ordersSerieSink.tryEmitNext(OrdersSeries.builder()
                 .instrumentName(transactionEntity.getInstrumentName())
                 .counter(counter.get())
-                .timestamp(Instant.now().toEpochMilli())
+                .timestamp(transaction.getCreatedTime().toEpochMilli())
                 .build());
 
     }

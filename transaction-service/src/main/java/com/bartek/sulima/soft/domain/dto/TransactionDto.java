@@ -8,5 +8,6 @@ import lombok.Data;
 public class TransactionDto {
 
     private String transactionId;
+    private long createdTime;
     private OrderDto order;
 }

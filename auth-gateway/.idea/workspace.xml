@@ -5,12 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9daec9a4-cda0-4a78-8d18-1b3171598740" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-gateway.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/src/app/components/nav-bar/nav-bar/nav-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/nav-bar/nav-bar/nav-bar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/domain/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/domain/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/my-profile/my-profile/my-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/components/register/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/services/sign-up/sign-up.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/services/sign-up/sign-up.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/services/transaction/transaction-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/services/transaction/transaction-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/app/services/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/app/services/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/target/classes/com/bartek/sulima/soft/application/config/initializer/InstrumentInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/dto/TransactionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/domain/dto/TransactionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/order/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/TransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/dto/TransactionDto$TransactionDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/dto/TransactionDto$TransactionDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/dto/TransactionDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/domain/dto/TransactionDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../transaction-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/order/OrderEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/UserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/config/initializer/UserInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/rest/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/application/rest/user/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/domain/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/domain/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/register/CreateAccountDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/user/UserDto$UserDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/user/UserDto$UserDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/user/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/application/rest/user/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/domain/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/domain/user/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity$UserEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity$UserEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/bartek/sulima/soft/infrastructure/jpa/user/UserEntity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +81,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eureka-server" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

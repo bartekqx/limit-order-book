@@ -23,6 +23,8 @@ public class UserInitializer {
                     .password(passwordEncoder.encode("bartek"))
                     .firstName("Bartłomiej")
                     .lastName("Sulima")
+                    .phoneNumber(509736776)
+                    .email("bartlomiej.sulima@o365.us.edu.pl")
                     .build();
 
             userRepository.save(userEntity);

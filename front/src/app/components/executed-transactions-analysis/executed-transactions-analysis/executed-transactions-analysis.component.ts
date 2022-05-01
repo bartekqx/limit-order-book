@@ -36,7 +36,7 @@ export class ExecutedTransactionsAnalysisComponent implements OnInit {
     name: 'myScheme',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#704FC4', '#4B852C', '#B67A3D', '#5B6FC8', '#25706F']
+    domain: ['#704FC4', '#4B852C', '#B67A3D', '#5B6FC8', '#25706F', '#C44F5B', '#4FBAC4', '#B6E04C']
   };
   
 

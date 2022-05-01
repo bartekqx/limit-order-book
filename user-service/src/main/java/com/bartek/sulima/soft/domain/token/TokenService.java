@@ -19,7 +19,7 @@ public class TokenService {
 
     private final KeysProvider jwtKeyProvider;
 
-    public TokenDto generateTokens(UserEntity userEntity) {
+    public TokenDto generateToken(UserEntity userEntity) {
         final LocalDateTime now = LocalDateTime.now();
         final LocalDateTime expiryTime = now.plusHours(24);
 

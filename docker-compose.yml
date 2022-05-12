@@ -31,15 +31,17 @@ services:
     build:
       context: ./user-service
       dockerfile: Dockerfile
-    networks:
-      - order-book-network
     depends_on:
       - eureka-server
+      - user-db
     ports:
       - "8902:8902"
+    networks:
+      - order-book-network
     environment:
+      spring.datasource.url: jdbc:postgresql://user-db:5431/user-service
       eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
-
+#
   order-service:
     build:
       context: ./order-service
@@ -49,9 +51,11 @@ services:
     depends_on:
       - eureka-server
       - kafka
+      - order-db
     ports:
       - "8903:8903"
     environment:
+      spring.datasource.url: jdbc:postgresql://order-db:5432/order-service
       spring.cloud.stream.kafka.binder.brokers: kafka:9092
       eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
 
@@ -64,18 +68,58 @@ services:
     depends_on:
       - eureka-server
       - kafka
+      - transaction-db
     ports:
       - "8904:8904"
     environment:
+      spring.datasource.url: jdbc:postgresql://transaction-db:5433/transaction-service
       spring.cloud.stream.kafka.binder.brokers: kafka:9092
       eureka.client.serviceUrl.defaultZone: http://eureka-server:8900/eureka/
 
-  angular-front:
-    build:
-      context: ./front
-      dockerfile: Dockerfile
+  user-db:
+    container_name: user-service-db
+    image: 'postgres:13.1-alpine'
+    environment:
+      POSTGRES_USER: masteruser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: user-service
+    networks:
+      - order-book-network
+    expose:
+      - "5431"
     ports:
-      - 4200:4200
+      - "5431:5431"
+    command: -p 5431
+
+  order-db:
+    container_name: order-db
+    image: 'postgres:13.1-alpine'
+    environment:
+      POSTGRES_USER: masteruser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: order-service
+    networks:
+      - order-book-network
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+
+
+  transaction-db:
+    container_name: transaction-db
+    image: 'postgres:13.1-alpine'
+    environment:
+      POSTGRES_USER: masteruser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: transaction-service
+    networks:
+      - order-book-network
+    expose:
+      - "5433"
+    ports:
+      - "5433:5433"
+    command: -p 5433
 
   zookeeper:
     image: wurstmeister/zookeeper:3.4.6
@@ -101,6 +145,14 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - "zookeeper"
+
+
+  angular-front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
 
 networks:
   order-book-network:

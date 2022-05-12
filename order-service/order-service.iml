@@ -146,7 +146,6 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.6.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.3.17" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.200" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.postgresql:postgresql:42.3.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.5.0" level="project" />
@@ -179,5 +178,17 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.17" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.17" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator-autoconfigure:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.8.4" level="project" />
+    <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.micrometer:micrometer-registry-prometheus:1.8.5" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_common:0.12.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.12.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel:0.12.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_common:0.12.0" level="project" />
+    <orderEntry type="library" name="Maven: io.prometheus:simpleclient_tracer_otel_agent:0.12.0" level="project" />
   </component>
 </module>

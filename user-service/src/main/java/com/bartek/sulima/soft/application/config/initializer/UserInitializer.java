@@ -18,6 +18,8 @@ public class UserInitializer {
     @Bean
     public CommandLineRunner cmd() {
         return args -> {
+            userRepository.deleteAll();
+
             UserEntity userEntity = UserEntity.builder()
                     .username("bartek")
                     .password(passwordEncoder.encode("bartek"))

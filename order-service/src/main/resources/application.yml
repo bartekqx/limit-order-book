@@ -2,9 +2,6 @@ server:
   port: 8903
 
 spring:
-  h2:
-    console:
-      enabled: true
   cloud:
     stream:
       kafka:
@@ -25,12 +22,14 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
+    url: jdbc:postgresql://localhost:5432/order-service
+    username: masteruser
     password: password
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 eureka:
   instance:
     prefer-ip-adress: true

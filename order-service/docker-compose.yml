@@ -22,3 +22,21 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - "zookeeper"
+
+  user-service-db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: masteruser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: user-service
+    ports:
+      - 5432:5432
+
+  order-service-db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: masteruser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: order-service
+    ports:
+      - 5432:5432

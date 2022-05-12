@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -14,6 +15,8 @@ public class InstrumentInitializer {
     private final InstrumentRepository instrumentRepository;
 
     public void initializeInstruments() {
+        instrumentRepository.deleteAll();
+
         InstrumentEntity instrumentEntity1 = InstrumentEntity.builder()
                 .code("FX")
                 .name("EURUSD")
